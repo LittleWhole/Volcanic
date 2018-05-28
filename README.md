@@ -1,2 +1,2 @@
-# Volcanic
-A powerful public, open source discord bot.
+# Volcanic - a Discord Bot
+A powerful, public, and open source discord bot.
