@@ -13,4 +13,4 @@ module.exports = client => {
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, command, args, perms, config);
   }
-});
+};
