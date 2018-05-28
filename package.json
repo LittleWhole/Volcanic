@@ -20,7 +20,10 @@
   "engines": {
     "node": ">=10.1.0"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+     "discord.js": "github:hydrabolt/discord.js#master"
+  }
 }
   
   
