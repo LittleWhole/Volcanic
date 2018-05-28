@@ -1,0 +1,26 @@
+{
+  "name": "volcanic",
+  "version": "0.0.1",
+  "description": "A powerful public, open source Discord bot.",
+  "author": "LittleWhole#2107",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LittleWhole/Volcanic"
+  },
+  "homepage": "https://github.com/LittleWhole/Volcanic/README.md",
+  "bugs": {
+    "url": "https://github.com/LittleWhole/Volcanic/issues",
+    "email": "wholelittle@gmail.com"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=10.1.0"
+  },
+  "private": true
+}
+  
+  
