@@ -22,7 +22,7 @@ fs.readdir("./events/", (err, evtFiles) => {
   evtFiles.forEach(file => {
     const eventName = file.split(".")[0];
     const event = require(`./events/${file}`);
-    client.on(eventName, event.bind(null, client));
+    event(client, config);
     delete require.cache[require.resolve(`./events/${file}`)];
   });
 });
