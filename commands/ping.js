@@ -1,4 +1,4 @@
-exports.run = (client, message, command, args, perms, config) => {
+exports.run = async (client, message, command, args, perms, config) => {
   message.channel.send('Ping?')
     .then(msg => {
       msg.edit(`Pong! (took: ${msg.createdTimestamp - message.createdTimestamp}ms)`);
@@ -14,6 +14,7 @@ exports.conf = {
 
 exports.help = {
   name: "ping",
-  description: "Ping/Pong command. I wonder what this does? /sarcasm",
-  usage: "ping"
+  description: "Ping the bot to check response time and latency.",
+  usage: "",
+  category: "Information"
 };
