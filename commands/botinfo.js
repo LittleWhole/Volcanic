@@ -19,6 +19,7 @@ exports.run = async (client, message, command, args, perms, config) => {
     .addField("Bot Created", client.user.createdAt, true)
     .addField("Node Version", process.version, true)
     .addField("NPM Version", npmv.data.replace("\n", ""), true)
+    .addField("Bot Version", config.version + " (Build v272)", true)
     .addField('OS', `${os.platform()} (${process.arch})`, true)
     .setColor(0xf47442)
     .setTimestamp();
