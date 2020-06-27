@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const mathjs = require('mathjs');
+const d3 = require('d3');
+const sd = require('standard-deviation');
 const arr = {	
 	max: function(array) {
 		return Math.max.apply(null, array);
@@ -81,10 +83,14 @@ const arr = {
 		return array.map(function(num) {
 			return (num - mean) / standardDeviation;
 		});
+	},
+
+	iqr(data) {
+		return d3.quantile(data, 0.75) - d3.quantile(data, 0.25);
 	}
 };
 
-exports.run = (client, message, command, args, perms, config) => {
+exports.run = async (client, message, command, args, perms, config) => {
     // if (/^\d+\.\d+$/.test(args.join().replace(/,/g, "")) !== true) return message.reply("Only numbers are permitted in data sets!");
     const data = args.join().replace(/\s/g, "").split(",");
     let messageEmbed = new Discord.MessageEmbed()
@@ -92,13 +98,16 @@ exports.run = (client, message, command, args, perms, config) => {
     .addField("Data Set Provided", data.join(", "))
     .addField("Length", data.length, true)
     .addField("Sum of Data Set", mathjs.sum(data))
-    .addField("Min", arr.min(data), true)
-    .addField("Max", arr.max(data), true)
-    .addField("Mode(s)", arr.modes(data).join(", "), true)
-    .addField("Median", mathjs.median(data), true)
+    .addField("Lower Extreme", arr.min(data), true)
+    .addField("Upper Extreme", arr.max(data), true)
+	.addField("Quartile 1", d3.quantile(data, 0.25), true)
+	.addField("Median", mathjs.median(data), true)
+	.addField("Quartile 3", d3.quantile(data, 0.75), true)
+	.addField("Mode(s)", arr.modes(data).join(", "), true)
     .addField("Mean", mathjs.mean(data), true)
-    .addField("Range", arr.range(data), true)
-    .addField("Standard Deviation", mathjs.std(data), true)
+	.addField("Range", arr.range(data), true)
+	.addField("Interquartile Range", arr.iqr(data), true)
+    .addField("Standard Deviation", d3.deviation(data), true)
     .setColor(config.color)
     .setTimestamp();
 

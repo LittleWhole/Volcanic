@@ -4,15 +4,15 @@ exports.run = async (client, message, command, args, perms, config) => {
     const code = args.join(" ");
     code.replace(client.token, "[TOKEN]");
     try {
-        const evaled = eval(code)
+        let evaled = eval(code)
 
-        if (typeof evaled !== "string") {
-            JSON.stringify(evaled);
-        }
+        if (typeof evaled !== "string")
+        evaled = require("util").inspect(evaled);
 
         if (evaled.length >= 2000) {
-            var tooLong = new Discord.RichEmbed()
+            var tooLong = new Discord.MessageEmbed()
             .setTitle(`Whoops! Too long!`)
+            .setColor("#36393e")
             .addField(`${evaled.length} characters!`, "That's past the charcacter limit! You can find the output in the console.");
             message.channel.send({embed: tooLong});
             console.log(evaled);

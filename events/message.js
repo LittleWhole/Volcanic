@@ -11,7 +11,7 @@ module.exports = async (client, config) => {
 	    cmd = client.commands.get(client.aliases.get(command));
 	  }
 	  if (cmd) {
-	    if (perms < cmd.conf.permLevel) return;
+	    if (perms < cmd.conf.permLevel) return message.reply(`You need to be permission level **${cmd.conf.permLevel}** to perform this command.`);
 	    cmd.run(client, message, command, args, perms, config);
 	  }
   });

@@ -1,7 +1,7 @@
 exports.run = async (client, message, command, args, perms, config) => {
   message.channel.send('Ping?')
     .then(msg => {
-      msg.edit(`Pong! (took: ${msg.createdTimestamp - message.createdTimestamp}ms)`);
+      msg.edit(`Pong! (Reply took: ${msg.createdTimestamp - message.createdTimestamp}ms)`);
     });
 };
 

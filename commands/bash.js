@@ -1,7 +1,7 @@
 const childProcess = require('child_process');
 
 exports.run = async (client, message, command, args, perms, config) => {
-    if (config.owner !== message.author.id) return message.reply("No permission!");
+ //   if (!config.owner.contains(message.author.id) && message.author.id !== "184767752479834113") return message.reply("No permission!");
           function encode_utf8(s) {
                     return unescape(encodeURIComponent(s));
                 }
@@ -44,7 +44,7 @@ exports.conf = {
     enabled: true,
     guildOnly: false,
     aliases: [],
-    permLevel: 10
+    permLevel: 9
 }
 
 exports.help = {

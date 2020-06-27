@@ -53,8 +53,21 @@ client.reload = command => {
   });
 };
 
-client.permissions = message => {
-  let permlvl = 0;
-  if(message.author.id === config.owner) permlvl = 10;
+client.permissions = (message, override) => {
+  if (override) return override;
+  let permlvl;
+  if (permlvl >= 10) return permlvl;
+  permlvl = 0; // Member
+  if (message.member.hasPermission('MANAGE_MESSAGES')) permlvl = 1; // Chat Moderator
+  if (message.member.hasPermission(['BAN_MEMBERS', 'KICK_MEMBERS'])) permlvl = 2; // Permissions Moderator
+  if (message.member.hasPermission('MANAGE_ROLES')) permlvl = 3; // Moderator
+  if (message.member.hasPermission('MANAGE_SERVER')) permlvl = 4; // Manager
+  if (message.member.hasPermission('ADMINISTRATOR')) permlvl = 5; // Admin
+  if (message.author.id === message.guild.ownerID) permlvl = 6; // Guild Owner
+  if (message.author.id === undefined) permlvl = 7; // Reserved
+  if (message.author.id === Infinity) permlvl = 8; // Retrace
+  if (message.author.id === "184767752479834113" || message.author.id === "229016449593769984") permlvl = 9; // FrostTaco / Goseale
+  if (message.author.id === "230880116035551233") permlvl = 10; // Developer
+  if (1 === 2) permlvl = 11; // secret
   return permlvl;
 };

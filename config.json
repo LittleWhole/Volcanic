@@ -1,0 +1,15 @@
+{
+	"token": "[REDACTED]",
+	"owner": ["230880116035551233"],
+	"prefix": "v!",
+	"color": "#f47442",
+	"version": "beta 1.6.0",
+	"colors": {
+		"volcanic": "#f47442",
+		"red": "ff0000",
+		"blue": "#0066ff",
+		"green": "66ff66",
+		"orange": "#ff9933",
+		"yellow": "#ffff00"
+	}
+}
