@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 exports.run = async (client, message, cmd, args, perms, config) => {
 	var helpEmbed = new Discord.MessageEmbed()
     .setTitle(`Help`)
-    .setDescription(`Volcanic is a very powerful multipurpose bot that fits nicely on any server.`)
+    .setDescription(`**NEWS:** The beta v1.7.0 update (Build v272) is here! This update brings about a redesigned commands menu, moderation commands, and MUSIC!\nVolcanic is a very powerful multipurpose bot that fits nicely on any server.`)
     .addField(":tools: Developer", "LittleWhole#1337", true)
     .addField(":desktop: Website", "http://volcanic.littlewhole.com", true)
     .addField(":link: Invite Link", "https://discordapp.com/oauth2/authorize?client_id=450514932262371329&permissions=8&scope=bot", false)
