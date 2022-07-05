@@ -22,7 +22,7 @@
   },
   "private": true,
   "dependencies": {
-    "@discordjs/opus": "^0.3.2",
+    "@discordjs/opus": "^0.8.0",
     "core-worker": ">=0.3.5",
     "d3": ">=5.4.0",
     "d3-array": ">=1.2.1",
