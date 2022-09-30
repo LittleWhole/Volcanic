@@ -24,7 +24,7 @@
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
     "core-worker": ">=0.3.5",
-    "d3": ">=5.4.0",
+    "d3": ">=7.6.1",
     "d3-array": ">=1.2.1",
     "discord.js": "^12.2.0",
     "ffmpeg-static": "^4.2.5",
